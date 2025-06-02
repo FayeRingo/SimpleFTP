@@ -13,3 +13,7 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+
+#include "SimpleLog/AsyncLog.h"
+
+#pragma comment(lib, "SimpleLog.lib")

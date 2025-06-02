@@ -25,6 +25,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
+    CAsyncLog::init("SimpleFTP");
+    LOGI("SimpleFTP started...");
     // TODO: 在此处放置代码。
 
     // 初始化全局字符串
@@ -151,6 +153,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         break;
     case WM_DESTROY:
+        CAsyncLog::uninit();
         PostQuitMessage(0);
         break;
     default:
