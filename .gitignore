@@ -31,8 +31,15 @@
 *.out
 *.app
 
+bin/
+
 .vs
 .git
 x64
 
 *.log
+*.aps
+*.vcxproj.user
+*.ilk
+*.obj
+*.pdb

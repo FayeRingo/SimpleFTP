@@ -15,6 +15,7 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // 主窗口类名
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
+INT_PTR CALLBACK    SiteManagerProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -133,6 +134,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             // 分析菜单选择:
             switch (wmId)
             {
+            case IDM_SITEMANAGER:
+                DialogBox(hInst, MAKEINTRESOURCE(IDD_SITEMANAGER), hWnd, SiteManagerProc);
+                break;
             case IDM_ABOUT:
                 DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
                 break;
@@ -163,6 +167,42 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 }
 
 // “关于”框的消息处理程序。
+INT_PTR CALLBACK SiteManagerProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    UNREFERENCED_PARAMETER(lParam);
+    switch (message)
+    {
+    case WM_INITDIALOG:
+        return (INT_PTR)TRUE; 
+
+    case WM_COMMAND:
+        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
+        {
+            EndDialog(hDlg, LOWORD(wParam));
+            return (INT_PTR)TRUE;
+        }
+        else if (LOWORD(wParam) == IDC_CONNECT)
+        {
+            TCHAR szIP[32];
+			GetDlgItemText(hDlg, IDC_IP, szIP, 32);
+
+			TCHAR szPort[8];
+			GetDlgItemText(hDlg, IDC_PORT, szPort, 8);
+
+			TCHAR szUserName[32];
+			GetDlgItemText(hDlg, IDC_USERNAME, szUserName, 32);
+
+			TCHAR szPassword[32];
+			GetDlgItemText(hDlg, IDC_PASSWORD, szPassword, 32);
+
+            int k = 0;
+        }
+        break;
+    }
+    return (INT_PTR)FALSE;
+}
+
+// “关于”框的消息处理程序。
 INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
     UNREFERENCED_PARAMETER(lParam);
@@ -171,7 +211,7 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_INITDIALOG:
         return (INT_PTR)TRUE;
 
-    case WM_COMMAND:
+    case WM_COMMAND: 
         if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
         {
             EndDialog(hDlg, LOWORD(wParam));

@@ -133,13 +133,18 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="FTPServer.h" />
+    <ClInclude Include="LogOnTask.h" />
     <ClInclude Include="Preference.h" />
+    <ClInclude Include="Processor.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SimpleFTP.h" />
     <ClInclude Include="SimpleLog\AsyncLog.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Task.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LogOnTask.cpp" />
+    <ClCompile Include="Processor.cpp" />
     <ClCompile Include="SimpleFTP.cpp" />
   </ItemGroup>
   <ItemGroup>

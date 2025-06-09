@@ -41,10 +41,25 @@
     <ClInclude Include="Preference.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="Processor.h">
+      <Filter>processor</Filter>
+    </ClInclude>
+    <ClInclude Include="Task.h">
+      <Filter>processor</Filter>
+    </ClInclude>
+    <ClInclude Include="LogOnTask.h">
+      <Filter>processor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SimpleFTP.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Processor.cpp">
+      <Filter>processor</Filter>
+    </ClCompile>
+    <ClCompile Include="LogOnTask.cpp">
+      <Filter>processor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
